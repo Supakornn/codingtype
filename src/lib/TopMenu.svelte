@@ -12,22 +12,21 @@
 <div class="flex flex-col items-center space-y-8 mb-12">
   <h1 class="text-3xl font-bold text-center text-tokyo-night-highlight">CodingType</h1>
   <div class="flex items-center space-x-6 text-sm">
-    <button class="opacity-50 hover:opacity-100 hover:text-tokyo-night-error transition-opacity"
-      >Made</button
-    >
-    <button class="opacity-50 hover:opacity-100 hover:text-tokyo-night-error transition-opacity"
-      >with</button
-    >
-    <button class="opacity-50 hover:opacity-100 transition-opacity">❤️</button>
-    <button class="opacity-50 hover:opacity-100 hover:text-tokyo-night-error transition-opacity"
-      >by</button
-    >
-    <button class="text-tokyo-night-accent">Supakornn</button>
+    <p class="opacity-50 hover:opacity-100 hover:text-tokyo-night-error transition-opacity">Made</p>
+    <p class="opacity-50 hover:opacity-100 hover:text-tokyo-night-error transition-opacity">with</p>
+    <p class="opacity-50 hover:opacity-100 transition-opacity">❤️</p>
+    <p class="opacity-50 hover:opacity-100 hover:text-tokyo-night-error transition-opacity">by</p>
     <button
       class="opacity-50 hover:opacity-100 hover:text-tokyo-night-error transition-opacity"
-      on:click={() => window.open("https://github.com/Supakornn", "_blank")}
+      on:click={() => window.open("https://github.com/Supakornn")}
     >
-      💻 GitHub</button
+      Supakornn</button
+    >
+    <button
+      class="opacity-50 hover:opacity-100 hover:text-tokyo-night-error transition-opacity"
+      on:click={() => window.open("https://github.com/Supakornn/codingtype", "_blank")}
+    >
+      🚀 Repo</button
     >
   </div>
 
