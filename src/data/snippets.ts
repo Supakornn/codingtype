@@ -279,6 +279,112 @@ class RedBlackTree {
         pt->parent = pt_right;
     }
 };`
+  ],
+
+  SQL: [
+    `SELECT 
+  departments.name,
+  COUNT(employees.id) as employee_count,
+  AVG(employees.salary) as avg_salary
+FROM departments
+LEFT JOIN employees ON departments.id = employees.department_id
+GROUP BY departments.id, departments.name
+HAVING COUNT(employees.id) > 5
+ORDER BY avg_salary DESC;`,
+
+    `WITH recursive employee_hierarchy AS (
+  SELECT id, name, manager_id, 0 as level
+  FROM employees
+  WHERE manager_id IS NULL
+  
+  UNION ALL
+  
+  SELECT e.id, e.name, e.manager_id, h.level + 1
+  FROM employees e
+  JOIN employee_hierarchy h ON e.manager_id = h.id
+)
+SELECT name, level
+FROM employee_hierarchy
+ORDER BY level, name;`,
+
+    `CREATE TABLE orders (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER NOT NULL,
+  status VARCHAR(50) DEFAULT 'pending',
+  total_amount DECIMAL(10,2),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_user
+    FOREIGN KEY(user_id) 
+    REFERENCES users(id)
+    ON DELETE CASCADE
+);`
+  ],
+
+  HTML: [
+    `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Layout</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="main-header">
+    <nav class="nav-container">
+      <ul class="nav-list">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+</body>
+</html>`,
+
+    `<form class="contact-form" action="/submit" method="POST">
+  <div class="form-group">
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="name" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="4" required></textarea>
+  </div>
+  
+  <button type="submit" class="submit-btn">Send Message</button>
+</form>`,
+
+    `<article class="blog-post">
+  <header class="post-header">
+    <h1>Understanding Semantic HTML</h1>
+    <div class="post-meta">
+      <time datetime="2024-02-20">February 20, 2024</time>
+      <span class="author">by John Doe</span>
+    </div>
+  </header>
+  
+  <section class="post-content">
+    <p>First paragraph of content...</p>
+    <figure>
+      <img src="example.jpg" alt="Descriptive text">
+      <figcaption>Image caption here</figcaption>
+    </figure>
+  </section>
+  
+  <footer class="post-footer">
+    <nav class="post-navigation">
+      <a href="#prev" rel="prev">Previous Post</a>
+      <a href="#next" rel="next">Next Post</a>
+    </nav>
+  </footer>
+</article>`
   ]
 };
 

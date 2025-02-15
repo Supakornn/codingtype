@@ -1,4 +1,4 @@
-export type LanguageKey = 'JavaScript' | 'Python' | 'Go' | 'TypeScript' | 'Rust' | 'Java' | 'Cpp';
+export type LanguageKey = 'JavaScript' | 'Python' | 'Go' | 'TypeScript' | 'Rust' | 'Java' | 'Cpp' | 'SQL' | 'HTML';
 
 export interface Snippets {
   JavaScript: string[];
@@ -8,4 +8,6 @@ export interface Snippets {
   Rust: string[];
   Java: string[];
   Cpp: string[];
+  SQL: string[];
+  HTML: string[];
 }
